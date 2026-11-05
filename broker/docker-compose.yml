@@ -1,0 +1,14 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0.20
+    container_name: smart-intersection-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"   # MQTT (ESP32, backend)
+      - "9001:9001"   # WebSocket (dashboard)
+    volumes:
+      - ./config:/mosquitto/config
+      - mosquitto-data:/mosquitto/data
+
+volumes:
+  mosquitto-data:

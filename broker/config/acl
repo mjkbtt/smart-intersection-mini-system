@@ -1,0 +1,24 @@
+# Smart Intersection — topic эрх (docs/interfaces.md §3)
+# Энд жагсаагаагүй topic-д хэн ч хандах эрхгүй.
+
+# ESP32 уулзварын төхөөрөмж
+user esp32
+topic write intersection/+/sensor
+topic write intersection/+/state
+topic write intersection/+/status
+topic read  intersection/+/command
+topic read  intersection/+/config
+
+# Backend (MQTT subscriber + алгоритм)
+user backend
+topic read  intersection/+/sensor
+topic read  intersection/+/state
+topic read  intersection/+/status
+topic write intersection/+/command
+topic write intersection/+/config
+
+# Dashboard (WebSocket, зөвхөн унших)
+user dashboard
+topic read  intersection/+/sensor
+topic read  intersection/+/state
+topic read  intersection/+/status
